@@ -1,6 +1,6 @@
 # Втора лабораториска вежба по Софтверско инженерство
 ## Мила Славковска, бр. на индекс 216067
-### Нумерирани линии од function
+### Нумерирани линии од function                   
 ```
 1  public static boolean function (User user, List<User> allUsers) {
 2         if (user==null || user.getPassword()==null || user.getEmail()==null){
@@ -53,15 +53,29 @@
 
 ### Тест случаи според критериумот Every Branch и објаснување		
 ![image](https://github.com/Mila-Slavkovska/SI_2023_lab2_216067/assets/109040935/4e62568d-41d0-470f-94c4-72a1b3095cc1)
-За овој критериум потребни се 5 тест случаи. Во првиот тест доволно е да биде задоволено user = null, па веднаш ќе се фрли RuntimeException. <br/>
-Во вториот тест, user.getUsername() е null и со ова username-от се поставува да е еднаков email-от на user. Исто така во овој тест email-от е валиден и user постои како елемент во allUsers низата, покрај другуте корисници со што ќе се изминат сите гранки во овој if. Понатаму валидната лозинката содржи празно местно (" ") со што функцијата ќе заврши. <br/>
+За овој критериум потребни се 5 тест случаи. <br/>
+Во првиот тест доволно е да биде задоволено user = null, па веднаш ќе се влезе во првиот if и ќе се фрли RuntimeException. <br/>
+Во вториот тест, user.getUsername() е null и со ова username-от се поставува да е еднаков email-от на user. Исто така во овој тест email-от е валиден (содржи @ и .) и user постои како елемент во allUsers низата, покрај другуте корисници со што ќе се изминат сите гранки во овој if. Понатаму валидната лозинката содржи празно местно (" ") со што функцијата ќе заврши. <br/>
 Во третиот тест случај email-от на user не е валиден и веднаш се продолжува со if-овите за лозинката која не содржи специјални карактери. Четвртиот тест случај е сличен на третиот, но во овој тест лозинката содржи специјални карактери. <br/>
 На крај, во петтиот тест лозинката не е валидна (има помалку од 8 карактери), па функцијата завршува. <br/>
 Со ова се изминуваат сите гранки.
 
 ### Тест случаи според критериумот Multiple Condition и објаснување
 Според Multiple Condition критериумот за условот if (user==null || user.getPassword()==null || user.getEmail()==null) потребни се следните тест случаи: <br/>
-T || X || X -> user=null, user.getPassword()=anything, user.getEmail()=anything <br/>
-F || T || X -> user!=null, user.getPassword()=null, user.getEmail()=anything <br/>
-F || F || T -> user!=null, user.getPassword()!=null, user.getEmail()=null <br/>
-F || F || F -> user!=null, user.getPassword()!=null, user.getEmail()!=null <br/>
+<table>
+          <tr>
+                    <td><b>MCT</b></td> <td><b>Test case</b></td>
+          </tr>
+          <tr>
+                    <td>T || X || X </td> <td>user=null, user.getPassword()=anything, user.getEmail()=anything </td>
+          </tr>
+          <tr>
+                    <td>F || T || X </td> <td>user!=null, user.getPassword()=null, user.getEmail()=anything </td>
+          </tr>
+          <tr>
+                    <td>F || F || T </td> <td>user!=null, user.getPassword()!=null, user.getEmail()=null </td>
+          </tr>
+          <tr>
+                    <td>F || F || F </td> <td>user!=null, user.getPassword()!=null, user.getEmail()!=null </td>
+          </tr>
+</table>
